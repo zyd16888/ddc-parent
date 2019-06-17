@@ -16,6 +16,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 @TableName("categories")
+
+//分类表
+
 public class Categories extends Model<Categories> {
     private static final long serialVersionUID = 1L;
 
