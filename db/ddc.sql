@@ -1,4 +1,4 @@
-/*
+﻿/*
  Navicat Premium Data Transfer
 
  Source Server         : localhost
@@ -14,7 +14,7 @@
  Date: 16/06/2019 09:24:13
 */
 
-SET NAMES utf8mb4;
+SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
@@ -25,7 +25,7 @@ CREATE TABLE `dcc_role_auth`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   `auth_id` bigint(20) NOT NULL COMMENT '权限ID',
-  PRIMARY KEY (`id`) USING BTREE
+  PRIMARY KEY (`id`) 
 ) ENGINE = InnoDB AUTO_INCREMENT = 1139943693940281346 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -71,7 +71,7 @@ CREATE TABLE `ddc_admin`  (
   `update_time` bigint(20) DEFAULT NULL COMMENT '更新时间',
   `status` tinyint(2) DEFAULT NULL COMMENT '启用、禁用  1 启用 2 禁用',
   `del_flag` tinyint(2) NOT NULL DEFAULT 0 COMMENT '删除标志 0 未删除 1 已删除 默认 0',
-  PRIMARY KEY (`id`) USING BTREE
+  PRIMARY KEY (`id`) 
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -94,7 +94,7 @@ CREATE TABLE `ddc_authority`  (
   `update_by` bigint(20) DEFAULT NULL COMMENT '修改人',
   `update_time` bigint(20) DEFAULT NULL COMMENT '修改时间',
   `del_flag` tinyint(2) NOT NULL DEFAULT 0 COMMENT '删除标志 0 未删除 1 已删除 默认 0',
-  PRIMARY KEY (`id`) USING BTREE
+  PRIMARY KEY (`id`) 
 ) ENGINE = InnoDB AUTO_INCREMENT = 1139941081274761218 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -133,8 +133,8 @@ CREATE TABLE `ddc_role`  (
   `update_by` bigint(20) DEFAULT NULL COMMENT '更新人',
   `update_time` bigint(20) DEFAULT NULL COMMENT '更新时间',
   `del_flag` tinyint(2) NOT NULL DEFAULT 0 COMMENT '删除标志 0 未删除 1 已删除 默认 0',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+  PRIMARY KEY (`id`) 
+)  AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ddc_role
