@@ -4,3 +4,4 @@
 *.class
 ddc_server/target/
 logs/
+*.properties
