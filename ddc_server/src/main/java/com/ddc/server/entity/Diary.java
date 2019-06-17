@@ -38,6 +38,9 @@ public class Diary extends Model<Diary> {
      */
     @TableField("content")
     private String content;
+
+
+
     /**
      * 类型
      */
@@ -65,5 +68,14 @@ public class Diary extends Model<Diary> {
         return this.id;
     }
 
+
+    public Diary(Integer id, String content, String type, String admin, String IP, String time) {
+        this.id = id;
+        this.content = content;
+        this.type = type;
+        this.admin = admin;
+        this.IP = IP;
+        Time = time;
+    }
 }
 
