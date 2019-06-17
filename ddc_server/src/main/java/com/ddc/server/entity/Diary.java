@@ -4,19 +4,12 @@ import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
+
 import lombok.*;
 
 import java.io.Serializable;
 
-/**
- * <p>
- * 操作日志表
- * </p>
- *
- * @author dingpengfei
- * @since 2019-05-09
- */
+
 @Builder
 @Getter
 @Setter
@@ -25,14 +18,13 @@ import java.io.Serializable;
 @ToString
 @TableName("Diary")
 public class Diary extends Model<Diary> {
-
     private static final long serialVersionUID = 1L;
 
     /**
      * 主键
      */
     @TableId("id")
-    private Integer id;
+    private String id;
     /**
      * 日志内容
      */
@@ -60,7 +52,7 @@ public class Diary extends Model<Diary> {
      * 登录的时间
      */
     @TableField("Time")
-    private String Time;
+    private Long Time;
 
 
     @Override
@@ -68,14 +60,13 @@ public class Diary extends Model<Diary> {
         return this.id;
     }
 
-
-    public Diary(Integer id, String content, String type, String admin, String IP, String time) {
+    public Diary(String id, String content, String type, String admin, String IP) {
         this.id = id;
         this.content = content;
         this.type = type;
         this.admin = admin;
         this.IP = IP;
-        Time = time;
+        this.Time = System.currentTimeMillis();
     }
-}
 
+}
