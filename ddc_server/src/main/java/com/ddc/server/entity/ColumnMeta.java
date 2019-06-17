@@ -14,6 +14,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 @TableName("columns")
+
+//栏目meta表
+
 public class ColumnMeta extends Model<ColumnMeta> {
     @TableField("column_meta_id")
     private Integer columnMetaId;
