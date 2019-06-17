@@ -40,8 +40,8 @@
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl"><a class="logo navbar-logo f-l mr-10 hidden-xs"
-                                           href="/aboutHui.shtml">懂点车后台管理系统</a>
-            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>
+                                           href="/index">懂点车后台管理系统</a>
+            <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/index">H-ui</a>
             <span class="logo navbar-slogan f-l mr-10 hidden-xs"></span>
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
             <nav class="nav navbar-nav">
