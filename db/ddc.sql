@@ -158,3 +158,62 @@ CREATE TABLE `ddc_role`  (
 INSERT INTO `ddc_role` VALUES (1, '超级管理员', '所有权限', 0, 1560617023429, 0, 1560617023429, 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
+/*==============================================================*/
+/* Table: Consulting                                            */
+/*==============================================================*/
+drop table if exists Consulting;
+create table Consulting
+(
+   C_id                 bigint(20) not null auto_increment,
+   C_title              varchar(30) not null,
+   C_class              varchar(10),
+   C_from               varchar(20),
+   C_upTime             datetime,
+   C_seeTimes           int,
+   C_state              boolean,
+   C_note               varchar(500),
+   C_create_man         varchar(30),
+   C_create_time        datetime,
+   C_update_man         varchar(30),
+   C_update_time        datetime,
+   C_delete_state       char(2),
+   primary key (C_id)
+);
+/*==============================================================*/
+/* Table: Picture                                               */
+/*==============================================================*/
+drop table if exists Picture;
+create table Picture
+(
+   P_id                 bigint(20) not null auto_increment,
+   P_class              varchar(10),
+   P_frist              varchar(30),
+   p_name               varchar(20),
+   P_tags               varchar(20),
+   P_uptime             datetime,
+   P_state              boolean,
+   P_picture            varchar(50),
+   P_create_man         varchar(30),
+   P_create_time        datetime,
+   P_update_man         varchar(30),
+   P_update_time        datetime,
+   P_delete_state       char(2),
+   primary key (P_id)
+);
+/*==============================================================*/
+/* Table: pictureList                                           */
+/*==============================================================*/
+drop table if exists pictureList;
+create table pictureList
+(
+   PL_id                integer(20) not null auto_increment,
+   P_id                 bigint(20),
+   PL_note              varchar(100),
+   primary key (PL_id)
+);
+alter table pictureList add constraint FK_Reference_pl foreign key (P_id)
+      references Picture (P_id) on delete restrict on update restrict;
+
+
+
+
