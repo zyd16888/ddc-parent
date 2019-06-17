@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
 import lombok.*;
 
 import java.io.Serializable;
@@ -69,13 +68,5 @@ public class Diary extends Model<Diary> {
     }
 
 
-    public Diary(Integer id, String content, String type, String admin, String IP, String time) {
-        this.id = id;
-        this.content = content;
-        this.type = type;
-        this.admin = admin;
-        this.IP = IP;
-        Time = time;
-    }
 }
 
