@@ -3,3 +3,4 @@
 *.iml
 *.class
 ddc_server/target/
+logs/
