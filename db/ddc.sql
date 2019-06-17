@@ -215,5 +215,52 @@ alter table pictureList add constraint FK_Reference_pl foreign key (P_id)
       references Picture (P_id) on delete restrict on update restrict;
 
 
+CREATE TABLE `categories` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(50) NULL DEFAULT NULL,
+	`level` INT(11) NULL DEFAULT NULL,
+	`from` INT(11) NULL DEFAULT NULL,
+	`append` VARCHAR(50) NULL DEFAULT NULL,
+	`create_by_bight` VARCHAR(50) NULL DEFAULT NULL,
+	`create time` DATE NULL DEFAULT NULL,
+	`update_by_bight` VARCHAR(50) NULL DEFAULT NULL,
+	`update_time` DATE NULL DEFAULT NULL,
+	`delete_fliag` TINYINT(4) NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	INDEX `FK_categories_categories` (`from`),
+	CONSTRAINT `FK_categories_categories` FOREIGN KEY (`from`) REFERENCES `categories` (`id`)
+)
+;
+
+CREATE TABLE `columns` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(50) NULL DEFAULT NULL,
+	`level` INT(11) NULL DEFAULT NULL,
+	`from` INT(11) NULL DEFAULT NULL,
+	`create_by_bight` VARCHAR(50) NULL DEFAULT NULL,
+	`create time` DATE NULL DEFAULT NULL,
+	`update_by_bight` VARCHAR(50) NULL DEFAULT NULL,
+	`update_time` DATE NULL DEFAULT NULL,
+	`delete_fliag` TINYINT(4) NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	INDEX `FK_columns_columns` (`from`),
+	CONSTRAINT `FK_columns_columns` FOREIGN KEY (`from`) REFERENCES `columns` (`id`)
+)
+;
+CREATE TABLE `column_meta` (
+	`column_meta_id` INT(11) NOT NULL,
+	`column_id` INT(11) NULL DEFAULT NULL,
+	`meta_key` INT(11) NOT NULL,
+	`meta_value` INT(11) NOT NULL,
+	`create_by_bight` VARCHAR(50) NULL DEFAULT NULL,
+	`create time` DATE NULL DEFAULT NULL,
+	`update_by_bight` VARCHAR(50) NULL DEFAULT NULL,
+	`update_time` DATE NULL DEFAULT NULL,
+	`delete_fliag` TINYINT(4) NULL DEFAULT '0',
+	PRIMARY KEY (`column_meta_id`),
+	INDEX `FK_column_meta_columns` (`column_id`),
+	CONSTRAINT `FK_column_meta_columns` FOREIGN KEY (`column_id`) REFERENCES `columns` (`id`)
+)
+;
 
 
