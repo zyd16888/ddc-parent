@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-
 import lombok.*;
 
 import java.io.Serializable;
@@ -68,5 +67,6 @@ public class Diary extends Model<Diary> {
         this.IP = IP;
         this.Time = System.currentTimeMillis();
     }
+
 
 }
