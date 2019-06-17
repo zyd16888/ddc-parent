@@ -95,7 +95,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="article-list.html" data-title="资讯管理" href="javascript:void(0)">资讯管理</a></li>
+                    <li><a data-href="/page/article-list" data-title="资讯管理" href="javascript:void(0)">资讯管理</a></li>
                     <li><a data-href="picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
                     <li><a data-href="article_column.html" data-title="栏目管理" href="javascript:void(0)">栏目管理</a></li>
                     <li><a data-href="article-category.html" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
