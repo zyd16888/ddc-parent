@@ -51,9 +51,25 @@ INSERT INTO `dcc_role_auth` VALUES (1139943693650874369, 1, 1139941080872108033)
 INSERT INTO `dcc_role_auth` VALUES (1139943693793480706, 1, 1139941080997937154);
 INSERT INTO `dcc_role_auth` VALUES (1139943693940281345, 1, 1139941081274761217);
 
+
+
+create table Diary
+(
+   id                   bigint(20) not null,
+   type                 int(11),
+   content              varchar(255),
+   admin                varchar(255),
+   IP                   varchar(255),
+   Time                 datetime,
+   primary key (id)
+);
 -- ----------------------------
 -- Table structure for ddc_admin
 -- ----------------------------
+
+
+
+
 DROP TABLE IF EXISTS `ddc_admin`;
 CREATE TABLE `ddc_admin`  (
   `id` bigint(20) NOT NULL,
