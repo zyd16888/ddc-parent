@@ -20,8 +20,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@TableName("pictureList")
-public class pictureList  extends Model<pictureList> {
+@TableName("PictureList")
+public class PictureList extends Model<PictureList> {
 
     @TableId(value = "PL_id", type = IdType.AUTO)
     private String id;
@@ -37,7 +37,7 @@ public class pictureList  extends Model<pictureList> {
         return this.id;
     }
 
-    public pictureList(String id, String note) {
+    public PictureList(String id, String note) {
         this.id = id;
         this.note = note;
     }
