@@ -25,7 +25,7 @@ public class ShiroConfig {
         factoryBean.setSecurityManager(securityManager);
         factoryBean.setLoginUrl("/login");
         // 登录成功后要跳转的链接
-        factoryBean.setSuccessUrl("/");
+        factoryBean.setSuccessUrl("/index");
 
         // 未授权界面;
         factoryBean.setUnauthorizedUrl("/403");
@@ -41,6 +41,9 @@ public class ShiroConfig {
         // 访问401和404页面不通过我们的Filter
         //通过http://127.0.0.1:9527/druid/index.html 访问 liugh/liugh
         filterRuleMap.put("/static/**", "anon");
+        filterRuleMap.put("/lib/**", "anon");
+        filterRuleMap.put("/temp/**", "anon");
+        filterRuleMap.put("/favicon.ico", "anon");
         filterRuleMap.put("/logout", "logout");
         filterRuleMap.put("/login", "authc");
         // <!-- 过滤链定义，从上向下顺序执行，一般将/**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
