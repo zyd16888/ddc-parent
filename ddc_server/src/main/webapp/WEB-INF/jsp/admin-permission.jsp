@@ -1,5 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -13,11 +14,11 @@
 <script type="text/javascript" src="/lib/html5shiv.js"></script>
 <script type="text/javascript" src="/lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/static/h-ui/css/H-ui.min.css"/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/static/h-ui.admin/css/H-ui.admin.css"/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/lib/Hui-iconfont/1.0.8/iconfont.css"/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/static/h-ui.admin/skin/default/skin.css"/>" id="skin" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/static/h-ui.admin/css/style.css"/>" />
 <!--[if IE 6]>
 <script type="text/javascript" src="/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -33,7 +34,7 @@
 			<button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜权限节点</button>
 		</form>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="admin_permission_add('添加权限节点','admin-permission-add.html','','310')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加权限节点</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="admin_permission_add('添加权限节点','/page/admin-role-add','','310')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加权限节点</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<table class="table table-border table-bordered table-bg">
 		<thead>
 			<tr>
@@ -59,13 +60,13 @@
 	</table>
 </div>
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="<c:url value="/lib/jquery/1.9.1/jquery.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/lib/layer/2.4/layer.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/static/h-ui/js/H-ui.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/static/h-ui.admin/js/H-ui.admin.js"/>"></script> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="<c:url value="/lib/datatables/1.10.0/jquery.dataTables.min.js"/>"></script>
 <script type="text/javascript">
 /*
 	参数解释：
