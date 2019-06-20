@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
 
 <!--_meta 作为公共模版分离出去-->
@@ -31,7 +31,7 @@
 </head>
 <body>
 <div class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-category-add">
+	<form action="/column/insert" method="post" class="form form-horizontal" id="form-category-add">
 		<div id="tab-category" class="HuiTab">
 			<!--<div class="tabBar cl">-->
 				<!--<span>基本设置</span>-->
@@ -39,10 +39,10 @@
 				<!--<span>SEO</span>-->
 			<!--</div>-->
 			<div class="tabCon">
-				<div class="row cl">
+<%--				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-3">栏目ID：</label>
 					<div class="formControls col-xs-8 col-sm-9">11230</div>
-				</div>
+				</div>--%>
 				<!--<div class="row cl">-->
 					<!--<label class="form-label col-xs-4 col-sm-3">-->
 						<!--<span class="c-red">*</span>-->
@@ -68,7 +68,7 @@
 						<span class="c-red">*</span>
 						栏目名称：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="" placeholder="" id="" name="">
+						<input type="text" class="input-text" value="" placeholder="" id="" name="columnName">
 					</div>
 					<div class="col-3">
 					</div>
@@ -93,7 +93,7 @@
 					<label class="form-label col-xs-4 col-sm-3">内容类型：</label>
 					<div class="formControls col-xs-8 col-sm-9">
 						<span class="select-box">
-						<select name="" class="select">
+						<select name="columnType" class="select">
 							<option value="1">文章</option>
 							<option value="2">图片</option>
 						</select>
