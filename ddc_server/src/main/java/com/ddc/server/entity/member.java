@@ -84,6 +84,6 @@ public class member extends Model<member> {
         this.memupdate_man=memupdate_man;
         this.memstatu=memstatu;
         this.memusername=memusername;
-        
+
     }
 }
