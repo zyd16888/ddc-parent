@@ -263,4 +263,20 @@ CREATE TABLE `column_meta` (
 )
 ;
 
+/*==============================================================*/
+/* Table: UserComment                                           */
+/*==============================================================*/
+create table UserComment
+(
+   ID                   bigint(20) not null auto_increment,
+   m_id                 bigint(20),
+   C_Comments           varchar(100),
+   C_Html               varchar(50),
+   C_Time               datetime,
+   primary key (ID)
+);
+
+alter table UserComment add constraint FK_Reference_8 foreign key (m_id)
+      references member (m_id) on delete restrict on update restrict;
+
 
