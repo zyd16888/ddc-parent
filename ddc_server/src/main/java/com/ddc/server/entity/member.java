@@ -73,4 +73,17 @@ public class member extends Model<member> {
 
     @Override
     protected Serializable pkVal(){return  this.memID;}
+
+    public member(String memID, String memcreater,String mememail,String memlocation,String memphone,String memsex,String memupdate_man,String memstatu,String memusername) {
+        this.memID = memID;
+        this.memcreater = memcreater;
+        this.mememail=mememail;
+        this.memlocation=memlocation;
+        this.memphone=memphone;
+        this.memsex=memsex;
+        this.memupdate_man=memupdate_man;
+        this.memstatu=memstatu;
+        this.memusername=memusername;
+        
+    }
 }
