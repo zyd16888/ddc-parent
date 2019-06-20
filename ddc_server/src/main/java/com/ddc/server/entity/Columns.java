@@ -24,7 +24,7 @@ public class Columns extends Model<Columns> {
     private String columnName;
 
     @TableField("level")
-    private Integer level;
+    private Integer columnLevel;
 
     @TableField("from")
     private Integer columnFrom;
@@ -43,9 +43,17 @@ public class Columns extends Model<Columns> {
 
     @TableField("delete_flag")
     private Integer columnDeleteFlag;
+    @TableField("type")
+    private Integer columnType;
 
     @Override
     protected Serializable pkVal() {
         return this.columnId;
+    }
+
+    public Columns(String name,int level,int from){
+        this.columnName = name;
+        this.columnLevel = level;
+        this.columnFrom = from;
     }
 }
