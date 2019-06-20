@@ -41,7 +41,7 @@
 			<thead>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th width="60">ID</th>
+					<th width="60">ID c</th>
 					<th width="60">用户名</th>
 					<th>留言内容</th>
 					<th width="100">操作</th>
