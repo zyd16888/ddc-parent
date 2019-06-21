@@ -2,9 +2,13 @@ package com.ddc.server.mapper;
 
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.ddc.server.entity.Columns;
 import com.ddc.server.entity.DDCAdmin;
 import com.ddc.server.entity.DDCAuth;
 import com.ddc.server.entity.DDCRoleAuth;
+import com.ddc.server.service.ColumnsService;
+import com.ddc.server.service.IDDCAdminService;
+import com.ddc.server.service.SpringContextBeanService;
 import com.ddc.server.shiro.PasswordUtils;
 import org.junit.Test;
 
@@ -22,8 +26,12 @@ public class DDCAdminMapperTest extends BaseTest {
     private DDCRoleMapper roleMapper;
     @Resource
     private DDCRoleAuthMapper roleAuthMapper;
+    @Resource
+    private ColumnsService columnsService;
+    @Resource
+    private IDDCAdminService adminService;
 
-    @Test
+    //@Test
     public void hello() {
 //        authMapper.insert(new DDCAuth("资讯管理","ZXGL",0L,1));
 //        authMapper.insert(new DDCAuth("评论管理","PLGL",0L,1));
@@ -46,7 +54,7 @@ public class DDCAdminMapperTest extends BaseTest {
         authMapper.insert(new DDCAuth("系统日志", "XTGL-XTRZ", 1139936539791441922L, 2));
     }
 
-    @Test
+    //@Test
     public void hello1() {
         List<DDCAuth> auths = authMapper.selectList(new EntityWrapper<>());
         List<DDCRoleAuth> list = new ArrayList<>(auths.size());
@@ -56,11 +64,36 @@ public class DDCAdminMapperTest extends BaseTest {
 
     }
 
-    @Test
+    //@Test
     public void hello2() {
         DDCAdmin admin = new DDCAdmin("root", "123456", 0,
                 "13812341234", "hello@qq.com", 1L);
         PasswordUtils.entryptPassword(admin);
         ddcAdminMapper.insert(admin);
+    }
+
+    @Test
+    public void Columns() {
+        columnsService = SpringContextBeanService.getBean(ColumnsService.class);
+        List<Columns> columnsList = columnsService.listAllColumns();
+        for(Columns columns : columnsList){
+            System.out.println(columns.getColumnName());
+        }
+    }
+
+    //@Test
+    public void selectColumns(){
+        columnsService = SpringContextBeanService.getBean(ColumnsService.class);
+        Columns columns = columnsService.selectColums(1);
+        System.out.println(columns.getColumnName());
+    }
+
+
+    @Test
+    public void selectAdmin(){
+        adminService = SpringContextBeanService.getBean(IDDCAdminService.class);
+        DDCAdmin admin = adminService.selectByName("root");
+        System.out.println(admin.getEmail());
+
     }
 }

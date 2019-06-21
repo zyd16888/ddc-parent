@@ -57,4 +57,11 @@ public class Categories extends Model<Categories> {
     protected Serializable pkVal() {
         return this.categoryId;
     }
+
+    public Categories(String name,int level,int from,String append){
+        this.categoryName = name;
+        this.categoryLevel = level;
+        this.categoryFrom = from;
+        this.categoryAppend = append;
+    }
 }
