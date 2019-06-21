@@ -1,13 +1,18 @@
 package com.ddc.server.controller;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+
+/**
+ * @author zyd
+ * @since 2019-06-19
+ */
+
+@RequestMapping("/consulting")
 @Controller
-@RequestMapping("/")
-@Slf4j
+@RestController
 public class ConsultingController {
-
 
 }

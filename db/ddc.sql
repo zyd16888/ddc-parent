@@ -168,6 +168,8 @@ create table Consulting
    C_title              varchar(30) not null,
    C_class              varchar(10),
    C_from               varchar(20),
+   C_keywords           varchar(50),
+   C_paixu              bigint,
    C_upTime             datetime,
    C_seeTimes           int,
    C_state              boolean,
@@ -280,3 +282,118 @@ alter table UserComment add constraint FK_Reference_8 foreign key (m_id)
       references member (m_id) on delete restrict on update restrict;
 
 
+
+-- ----------------------------
+-- Table structure for ddc_suggestings
+-- ----------------------------
+DROP TABLE IF EXISTS `ddc_suggestings`;
+CREATE TABLE `ddc_suggestings`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(25) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户名',
+  `sex` tinyint(2) NOT NULL DEFAULT 2 COMMENT '性别 0 男 1 女 2 保密 默认保密',
+  `mobile` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '手机号',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '邮箱',
+  `path` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT '' COMMENT '附件地址 ',
+  `city` tinyint(4) DEFAULT NULL COMMENT '城市ID',
+  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '留言内容',
+  `create_time` bigint(20) NOT NULL,
+  `create_by` bigint(20) NOT NULL,
+  `update_time` bigint(20) DEFAULT NULL,
+  `update_by` bigint(20) DEFAULT NULL,
+  `del_flag` tinyint(2) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 102 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ddc_suggestings
+-- ----------------------------
+INSERT INTO `ddc_suggestings` VALUES (14, 'user13', 1, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc123123', 1560954599870, 0, 1561035983423, 1139946923277545474, 0);
+INSERT INTO `ddc_suggestings` VALUES (15, 'user14', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954599896, 0, 1560954599896, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (16, 'user15', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954599925, 0, 1560954599925, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (17, 'user16', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954599952, 0, 1560954599952, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (18, 'user17', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954599981, 0, 1560954599981, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (19, 'user18', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600007, 0, 1560954600007, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (20, 'user19', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600036, 0, 1560954600036, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (21, 'user20', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600095, 0, 1560954600095, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (22, 'user21', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600150, 0, 1560954600150, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (23, 'user22', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600181, 0, 1560954600181, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (24, 'user23', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600205, 0, 1560954600205, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (25, 'user24', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600236, 0, 1560954600236, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (26, 'user25', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600261, 0, 1560954600261, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (27, 'user26', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600291, 0, 1560954600291, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (28, 'user27', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600327, 0, 1560954600327, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (29, 'user28', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600357, 0, 1560954600357, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (30, 'user29', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600383, 0, 1560954600383, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (31, 'user30', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600413, 0, 1560954600413, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (32, 'user31', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600438, 0, 1560954600438, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (33, 'user32', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600469, 0, 1560954600469, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (34, 'user33', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600494, 0, 1560954600494, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (35, 'user34', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600524, 0, 1561035844084, 1139946923277545474, 0);
+INSERT INTO `ddc_suggestings` VALUES (36, 'user35', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600549, 0, 1560954600549, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (37, 'user36', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600601, 0, 1560954600601, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (38, 'user37', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600646, 0, 1560954600646, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (39, 'user38', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600671, 0, 1560954600671, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (40, 'user39', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600701, 0, 1560954600701, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (41, 'user40', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600726, 0, 1560954600726, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (42, 'user41', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600756, 0, 1560954600756, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (43, 'user42', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600781, 0, 1560954600781, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (44, 'user43', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600813, 0, 1560954600813, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (45, 'user44', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600837, 0, 1560954600837, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (46, 'user45', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600859, 0, 1560954600859, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (47, 'user46', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600889, 0, 1560954600889, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (48, 'user47', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600914, 0, 1560954600914, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (49, 'user48', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600943, 0, 1560954600943, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (50, 'user49', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600969, 0, 1560954600969, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (51, 'user50', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954600999, 0, 1560954600999, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (52, 'user51', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601025, 0, 1560954601025, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (53, 'user52', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601055, 0, 1560954601055, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (54, 'user53', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601080, 0, 1560954601080, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (55, 'user54', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601110, 0, 1560954601110, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (56, 'user55', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601137, 0, 1560954601137, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (57, 'user56', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601169, 0, 1560954601169, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (58, 'user57', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601200, 0, 1560954601200, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (59, 'user58', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601224, 0, 1560954601224, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (60, 'user59', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601254, 0, 1560954601254, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (61, 'user60', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601280, 0, 1560954601280, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (62, 'user61', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601309, 0, 1560954601309, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (63, 'user62', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601334, 0, 1560954601334, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (64, 'user63', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601356, 0, 1560954601356, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (65, 'user64', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601387, 0, 1560954601387, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (66, 'user65', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601412, 0, 1560954601412, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (67, 'user66', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601442, 0, 1560954601442, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (68, 'user67', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601467, 0, 1560954601467, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (69, 'user68', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601497, 0, 1560954601497, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (70, 'user69', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601523, 0, 1560954601523, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (71, 'user70', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601553, 0, 1560954601553, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (72, 'user71', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601579, 0, 1560954601579, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (73, 'user72', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601608, 0, 1560954601608, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (74, 'user73', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601634, 0, 1560954601634, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (75, 'user74', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601664, 0, 1560954601664, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (76, 'user75', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601688, 0, 1560954601688, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (77, 'user76', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601711, 0, 1560954601711, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (78, 'user77', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601741, 0, 1560954601741, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (79, 'user78', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601766, 0, 1560954601766, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (80, 'user79', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601796, 0, 1560954601796, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (81, 'user80', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601822, 0, 1560954601822, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (82, 'user81', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601852, 0, 1560954601852, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (83, 'user82', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601877, 0, 1560954601877, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (84, 'user83', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601907, 0, 1560954601907, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (85, 'user84', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601933, 0, 1560954601933, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (86, 'user85', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601963, 0, 1560954601963, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (87, 'user86', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954601988, 0, 1560954601988, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (88, 'user87', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602018, 0, 1560954602018, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (89, 'user88', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602043, 0, 1560954602043, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (90, 'user89', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602065, 0, 1560954602065, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (91, 'user90', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602095, 0, 1560954602095, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (92, 'user91', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602120, 0, 1560954602120, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (93, 'user92', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602150, 0, 1560954602150, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (94, 'user93', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602176, 0, 1560954602176, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (95, 'user94', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602206, 0, 1560954602206, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (96, 'user95', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602231, 0, 1560954602231, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (97, 'user96', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602261, 0, 1560954602261, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (98, 'user97', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602287, 0, 1560954602287, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (99, 'user98', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602317, 0, 1560954602317, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (100, 'user99', 2, '13412341234', 'hello@qq.cm', '', 1, 'hello ddc', 1560954602342, 0, 1560954602342, 0, 0);
+INSERT INTO `ddc_suggestings` VALUES (101, 'admin', 0, '15112341234', '123@qq.com', '', NULL, 'come on ', 1561036210116, 1139946923277545474, 1561036210116, 1139946923277545474, 0);
+
+SET FOREIGN_KEY_CHECKS = 1;

@@ -1,7 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
-
 <!--_meta 作为公共模版分离出去-->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -16,11 +14,11 @@
 <script type="text/javascript" src="/lib/html5shiv.js"></script>
 <script type="text/javascript" src="/lib/respond.min.js"></script>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="../static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="../static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="../lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="../static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="../static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -32,32 +30,32 @@
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 <body>
-<article class="page-container">
-	<form action="/consulting/addAction" method="post" class="form form-horizontal" id="form-article-add">
+<article id = "demo" class="page-container">
+	<form class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="articletitle" name="articletitle">
 			</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">简略标题：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="articletitle2" name="articletitle2">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="articlecolumn" class="select">
-					<option value="0">全部栏目</option>
-					<option value="1">新闻资讯</option>
-					<option value="11">行业动态</option>
-					<option value="12">行业资讯</option>
-					<option value="13">行业新闻</option>
-				</select>
-				</span> </div>
-		</div>
+		<%--<--<div class="row cl">--%>
+			<%--<label class="form-label col-xs-4 col-sm-2">简略标题：</label>--%>
+			<%--<div class="formControls col-xs-8 col-sm-9">--%>
+				<%--<input type="text" class="input-text" value="" placeholder="" id="articletitle2" name="articletitle2">--%>
+			<%--</div>--%>
+		<%--</div>--%>
+		<%--<div class="row cl">--%>
+			<%--<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>--%>
+			<%--<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">--%>
+				<%--<select name="articlecolumn" class="select">--%>
+					<%--<option value="0">全部栏目</option>--%>
+					<%--<option value="1">新闻资讯</option>--%>
+					<%--<option value="11">行业动态</option>--%>
+					<%--<option value="12">行业资讯</option>--%>
+					<%--<option value="13">行业新闻</option>--%>
+				<%--</select>--%>
+				<%--</span> </div>--%>
+		<%--</div>--%>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
@@ -83,7 +81,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">文章摘要：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="abstract" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+				<textarea name="abstract1" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
@@ -143,13 +141,14 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">文章内容：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
+				<%--<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> --%>
+					<textarea rows="25" cols="170" name="content"></textarea>
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
-				<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
+				<button onclick="test(1)" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onclick="test(2)" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
 				<button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -168,10 +167,68 @@
 <script type="text/javascript" src="/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript" src="/lib/webuploader/0.1.5/webuploader.min.js"></script>
-<script type="text/javascript" src="/lib/ueditor/1.4.3/ueditor.config.js"></script>
-<script type="text/javascript" src="/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
-<script type="text/javascript" src="/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<%--<script type="text/javascript" src="/lib/ueditor/1.4.3/ueditor.config.js"></script>--%>
+<%--<script type="text/javascript" src="/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>--%>
+<%--<script type="text/javascript" src="/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>--%>
 <script type="text/javascript">
+	function test(val){
+		if(val==1){
+			var url="/passage/addAction1";
+			var params=$("#form-article-add").serialize();
+			$.post(url,params);
+		}
+		if(val==2){
+			var url="/passage/addAction2";
+			var params=$("#form-article-add").serialize();
+			$.post(url,params);
+		}
+	}
+
+
+	function addOrUpdate(data) {
+		var getTpl = document.getElementById("demo").innerHTML;
+		laytpl(getTpl).render(data, function (html) {
+			var index = layer.open({
+				type: 1,
+				content: html,
+				area: ['500px', '600px']
+			});
+			form.render();
+			form.on('submit(Hui-iconfont)', function (data) {
+				layer.msg(JSON.stringify(data.field));
+				$.ajax({
+					"url": "/passage/updateOrAdd",
+					"data": JSON.stringify(data.field),
+					type: "post",
+					contentType: 'application/json',
+					dataType: "json",
+					success: function (res) {
+						if (res.code === 200) {
+							layer.msg("操作成功");
+							reload();
+							layer.close(index);
+						} else {
+							layer.msg(res.msg);
+						}
+					}
+				})
+				return false;
+			});
+		});
+	}
+
+	//监听行工具事件
+	table.on('tool(test)', function (obj) {
+		var data = obj.data;
+
+		// console.log(data);
+		if (obj.event === 'del') {
+			deleteByIds(data.id);
+		} else if (obj.event === 'edit') {
+			addOrUpdate(data);
+		}
+	});
+
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',
@@ -238,7 +295,7 @@ $(function(){
 
 	var uploader = WebUploader.create({
 		auto: true,
-		swf: '/lib/webuploader/0.1.5/Uploader.swf',
+		swf: 'lib/webuploader/0.1.5/Uploader.swf',
 	
 		// 文件接收服务端。
 		server: 'fileupload.php',
@@ -330,7 +387,7 @@ $(function(){
         }
     });
 	
-	var ue = UE.getEditor('editor');
+	// var ue = UE.getEditor('editor');
 	
 });
 </script>

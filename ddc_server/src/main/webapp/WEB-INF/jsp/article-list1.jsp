@@ -106,14 +106,14 @@
                 />
             </div>
 
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">details</label>
-            <div class="layui-input-inline">
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">details</label>
+                <div class="layui-input-inline">
                 <textarea type="text" name="details"
                           class="layui-input">{{ d.details || '' }}</textarea>
+                </div>
             </div>
-        </div>
         <div class="layui-form-item">
             <label class="layui-form-label"></label>
             <div class="layui-input-inline">
@@ -137,7 +137,7 @@
 <script type="text/javascript" src="/lib/layui/layui.all.js"></script>
 <script type="text/javascript" src="/lib/laypage/1.2/laypage.js"></script>
 <script type="text/html" id="toolbarDemo">
-    <a class="btn btn-primary radius" data-title="添加资讯" data-href="/page/article-add" onclick="Hui_admin_tab(this)"
+    <a class="btn btn-primary radius" data-title="添加资讯" data-href="/page/article-add1" onclick="Hui_admin_tab(this)"
        href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加资讯</a>
     <button class="layui-btn layui-btn-sm" lay-event="getCheckData">批量删除</button>
 
@@ -176,7 +176,7 @@
                 elem: '.table-sort'
                 , toolbar: '#toolbarDemo'
                 , height: 'full-220'
-                , url: '/consulting/list' //数据接口
+                , url: '/passage/list' //数据接口
                 , page: true //开启分页
                 , cols: [[ //表头
                     {type: 'checkbox', fixed: 'left'}
@@ -241,7 +241,7 @@
                             layer.alert(arr.join(','));
                             layer.confirm('真的删除这些数据么', function (index) {
                                 $.ajax({
-                                    "url": "/consulting/delete",
+                                    "url": "/passage/delete",
                                     "data": {
                                         ids: arr.join(',')
                                     },
@@ -279,7 +279,7 @@
                     form.on('submit(update_form_submit)', function (data) {
                         layer.msg(JSON.stringify(data.field));
                         $.ajax({
-                            "url": "/consulting/updateOrAdd",
+                            "url": "/passage/updateOrAdd",
                             "data": JSON.stringify(data.field),
                             type: "post",
                             contentType: 'application/json',
@@ -306,7 +306,7 @@
                 if (obj.event === 'del') {
                     layer.confirm('真的删除行么', function (index) {
                         $.ajax({
-                            "url": "/consulting/delete",
+                            "url": "/passage/delete",
                             "data": {
                                 ids: data.id
                             },
@@ -329,6 +329,63 @@
             });
         });
     });
+
+
+    // $('.table-sort').dataTable({
+    //     "aaSorting": [[1, "desc"]],//默认第几个排序
+    //     "bStateSave": true,//状态保存
+    //     "pading": false,
+    //     "aoColumnDefs": [
+    //         //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+    //         {"orderable": false, "aTargets": [0, 8]}// 不参与排序的列
+    //     ]
+    // });
+    //
+    // /*资讯-添加*/
+    // function article_add(title, url, w, h) {
+    //     var index = layer.open({
+    //         type: 2,
+    //         title: title,
+    //         content: url
+    //     });
+    //     layer.full(index);
+    // }
+    //
+    // /*资讯-编辑*/
+    // function article_edit(title, url, id, w, h) {
+    //     var index = layer.open({
+    //         type: 2,
+    //         title: title,
+    //         content: url
+    //     });
+    //     layer.full(index);
+    // }
+    //
+    // /*资讯-删除*/
+    // function article_del(obj, id) {
+    //     layer.confirm('确认要删除吗？', function (index) {
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: '',
+    //             dataType: 'json',
+    //             success: function (data) {
+    //                 $(obj).parents("tr").remove();
+    // /*资讯-发布*/
+    // function article_start(obj, id) {
+    //     layer.confirm('确认要发布吗？', function (index) {
+    //         $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
+    //         $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
+    //         $(obj).remove();
+    //         layer.msg('已发布!', {icon: 6, time: 1000});
+    //     });
+    // }
+    //
+    // /*资讯-申请上线*/
+    // function article_shenqing(obj, id) {
+    //     $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">待审核</span>');
+    //     $(obj).parents("tr").find(".td-manage").html("");
+    //     layer.msg('已提交申请，耐心等待审核!', {icon: 1, time: 2000});
+    // }
 
 </script>
 </body>

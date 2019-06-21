@@ -9,66 +9,56 @@ import lombok.*;
 
 import java.io.Serializable;
 
-/**
- * <p>
- * 管理员
- * </p>
- *
- * @author dingpengfei
- * @since 2019-05-09
- */
+
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@TableName("ddc_admin")
-public class DDCAdmin extends Model<DDCAdmin> {
+@TableName("ddc_suggestings")
+public class DdcSuggestings extends Model<DdcSuggestings> {
 
-    private static final long serialVersionUID = 1L;
     /**
      * 用户主键
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+
     /**
      * 用户名
      */
-    private String name;
+    @TableField("username")
+    private String username;
 
-    /**
-     * 密码
-     */
-    private String password;
-    /**
-     * 盐 值 用户名+时间戳
-     */
-    private String salt;
     /**
      * 性别
      */
     private Integer sex;
-    /**
-     * 密码
-     */
-    private String mobile;
+
     /**
      * 手机号
      */
+    private String mobile;
+
     private String email;
+
     /**
-     * 角色ID
+     * 附件地址
      */
-    @TableField(value = "role_id")
-    private Long roleId;
+    private String path;
+
     /**
-     * 备注
+     * 城市ID
+     */
+    @TableField("city")
+    private Integer cityID;
+
+    /**
+     * 留言内容
      */
     private String remark;
-    /**
-     * 创建时间
-     */
+
     @TableField("create_time")
     private Long createTime;
     /**
@@ -87,46 +77,29 @@ public class DDCAdmin extends Model<DDCAdmin> {
     @TableField("update_time")
     private Long updateTime;
 
-
-    /**
-     * 状态值（1：启用，2：禁用）
-     */
-    private Integer status;
     /**
      * 删除标志
      */
     @TableField("del_flag")
     private Integer delFlag;
 
-    @TableField(exist = false)
-    private String token;
-
-    @TableField(exist = false)
-    private String roleName;
-
-
     @Override
     protected Serializable pkVal() {
         return this.id;
     }
 
-    public DDCAdmin(String name) {
-        this.name = name;
-    }
-
-    public DDCAdmin(String name, String password, Integer sex, String mobile, String email, Long roleId) {
-        this.name = name;
-        this.password = password;
+    public DdcSuggestings(String username, Integer sex, String mobile, String email, String path, Integer cityID, String remark) {
+        this.username = username;
         this.sex = sex;
         this.mobile = mobile;
         this.email = email;
-        this.roleId = roleId;
+        this.path = path;
+        this.cityID = cityID;
         this.remark = remark;
-        this.createTime=System.currentTimeMillis();
-        this.updateTime=System.currentTimeMillis();
+        this.createTime = System.currentTimeMillis();
+        this.updateTime = System.currentTimeMillis();
         this.createBy=0L;
         this.updateBy=0L;
-        this.delFlag=0;
-        this.status=0;
+        this.delFlag = 0;
     }
 }
