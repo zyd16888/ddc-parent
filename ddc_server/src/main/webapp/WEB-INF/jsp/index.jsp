@@ -95,7 +95,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="/page/article-list" data-title="资讯管理" href="javascript:void(0)">资讯管理</a></li>
+                    <li><a data-href="/page/article-list1" data-title="资讯管理" href="javascript:void(0)">资讯管理</a></li>
                     <li><a data-href="/page/picture-list" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
                     <li><a data-href="/page/article_column" data-title="栏目管理" href="javascript:void(0)">栏目管理</a></li>
                     <li><a data-href="/page/article-category" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
@@ -162,8 +162,6 @@
                 <ul>
                     <li><a data-href="/page/charts-1" data-title="折线图" href="javascript:void(0)">活跃用户统计</a></li>
                     <li><a data-href="/page/charts-1" data-title="时间轴折线图" href="javascript:void(0)">浏览数据统计</a></li>
-                    <!--<li><a data-href="charts-3.html" data-title="区域图" href="javascript:void(0)">分享数据统计</a></li>-->
-                    <!--<li><a data-href="charts-3.html" data-title="区域图" href="javascript:void(0)">评论数据统计</a></li>-->
                 </ul>
             </dd>
         </dl>

@@ -24,7 +24,7 @@ public class Consulting extends Model<Consulting> {
      * 咨询id，主键
      */
     @TableId(value = "C_id",type = IdType.AUTO)
-    private String conId;
+    private Long conId;
 
     /**
      * 标题，非空
@@ -104,8 +104,7 @@ public class Consulting extends Model<Consulting> {
         return this.conId;
     }
 
-    public Consulting(String conId, String conTiele, String conClass, String conFrom, boolean conState, String conNote) {
-        this.conId = conId;
+    public Consulting(String conTiele, String conClass, String conFrom, boolean conState, String conNote) {
         this.conTiele = conTiele;
         this.conClass = conClass;
         this.conFrom = conFrom;

@@ -1,7 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://shiro.apache.org/tags" prefix="shiro" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,8 +20,8 @@
     <link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css"/>
     <link rel="stylesheet" href="/lib/layui/css/layui.css" media="all">
     <!--[if IE 6]>
-    <script type="text/javascript" src="/lib/DD_belatedPNG_0.0.8a-min.js"></script>-->
-<!--    <script>DD_belatedPNG.fix('*');</script>-->
+    <script type="text/javascript" src="/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <title>资讯列表</title>
 </head>
@@ -36,157 +34,112 @@
     <div class="text-c">
         <!--<button onclick="removeIframe()" class="btn btn-primary radius">关闭选项卡</button>-->
         <span class="select-box inline">
-		<select name="" class="select">
-			<option value="0">全部分类</option>
-			<option value="1">分类一</option>
-			<option value="2">分类二</option>
-		</select>
+		<%--<select name="articlecolumn" class="select" id="articlecolumn">--%>
+			<%--<option value="0">全部分类</option>--%>
+			<%--<option value="1">新闻资讯</option>--%>
+            <%--<option value="11">行业动态</option>--%>
+            <%--<option value="12">行业资讯</option>--%>
+            <%--<option value="13">行业新闻</option>--%>
+		<%--</select>--%>
 		</span> 日期范围：
         <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin"
-               class="input-text Wdate" style="width:120px;" name="start"/>
+               class="input-text Wdate" style="width:120px;"/>
         -
         <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax"
-               class="input-text Wdate" style="width:120px;" name="end"/>
-        <input type="text" name="titleName" id="titleName" placeholder=" 资讯名称" style="width:250px" class="input-text">
-        <button name="search" id="search" class="btn btn-success radius" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜资讯</button>
+               class="input-text Wdate" style="width:120px;"/>
+        <input type="text" name="zxname" id="zxname" placeholder=" 资讯标题" style="width:250px" class="input-text"/>
+        <button name="search" id="search" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜资讯</button>
     </div>
-
-
-    <div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l"><a href="javascript:;" onclick="datadel()"
-                                                               class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a
-            class="btn btn-primary radius" data-title="添加资讯" data-href="/page/article-add" onclick="Hui_admin_tab(this)"
-            href="/page/article-add"><i class="Hui-iconfont">&#xe600;</i> 添加资讯</a></span> <span
-            class="r">共有数据：<strong>2</strong> 条</span></div>
+    <%--<div class="cl pd-5 bg-1 bk-gray mt-20"><span class="l">--%>
+    <%--&lt;%&ndash;<a href="javascript:;" onclick="datadel()"&ndash;%&gt;--%>
+    <%--&lt;%&ndash;class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> &ndash;%&gt;--%>
+    <%--<a--%>
+    <%--class="btn btn-primary radius" data-title="添加资讯" data-href="/page/article-add" onclick="Hui_admin_tab(this)"--%>
+    <%--href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加资讯</a></span> <span--%>
+    <%--class="r">共有数据：<strong>54</strong> 条</span></div>--%>
     <div class="mt-20">
-        <table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
-            <thead>
-            <tr class="text-c">
-                <th width="25"><input type="checkbox" name="" value=""></th>
-                <th width="80">ID</th>
-                <th>标题</th>
-                <th width="80">分类</th>
-                <th width="80">来源</th>
-                <th width="120">更新时间</th>
-                <th width="75">浏览次数</th>
-                <th width="60">发布状态</th>
-                <th width="120">操作</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="text-c">
-                <td><input type="checkbox" value="" name=""></td>
-                <td>10001</td>
-                <td class="text-l"><u style="cursor:pointer" class="text-primary"
-                                      onClick="article_edit('查看','article-zhang.html','10001')" title="查看">资讯标题</u></td>
-                <td>行业动态</td>
-                <td>H-ui</td>
-                <td>2014-6-11 11:11:42</td>
-                <td>21212</td>
-                <td class="td-status"><span class="label label-success radius">已发布</span></td>
-                <td class="f-14 td-manage"><a style="text-decoration:none" onClick="article_stop(this,'10001')"
-                                              href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a
-                        style="text-decoration:none" class="ml-5"
-                        onClick="article_edit('资讯编辑','article-add.html','10001')" href="javascript:;" title="编辑"><i
-                        class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5"
-                                                                 onClick="article_del(this,'10001')" href="javascript:;"
-                                                                 title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-                </td>
-            </tr>
-            <tr class="text-c">
-                <td><input type="checkbox" value="" name=""></td>
-                <td>10002</td>
-                <td class="text-l"><u style="cursor:pointer" class="text-primary"
-                                      onClick="article_edit('查看','article-zhang.html','10002')" title="查看">资讯标题</u></td>
-                <td>行业动态</td>
-                <td>H-ui</td>
-                <td>2014-6-11 11:11:42</td>
-                <td>21212</td>
-                <td class="td-status"><span class="label label-success radius">草稿</span></td>
-                <td class="f-14 td-manage"><a style="text-decoration:none"
-                                              class="ml-5"
-                                              onClick="article_edit('资讯编辑','article-add.html','10001')"
-                                              href="javascript:;" title="编辑"><i
-                        class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5"
-                                                                 onClick="article_del(this,'10001')" href="javascript:;"
-                                                                 title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-                </td>
-            </tr>
-            </tbody>
+        <table class="table table-border table-bordered table-bg table-hover table-sort table-responsive" lay-filter="test" style="margin-top: 10px;">
         </table>
     </div>
-
-    <table class="table table-border table-bordered table-hover table-bg table-sort" lay-filter="test"
-           style="margin-top: 10px;">
-
-    </table>
 </div>
+<script id="demo" type="text/html">
+    <form class="layui-form" action="">
+        <input type="hidden" name="id" value="{{ d.id || '' }}" autocomplete="off">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">title</label>
 
 
+            <div class="layui-input-inline">
+                <input type="text" name="title" value="{{ d.title || '' }}" lay-verify="required"
+                       placeholder="请输入文章名" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">keyword</label>
+            <div class="layui-input-inline">
+                <input type="text" name="keyword" value="{{ d.keyword || '' }}" lay-verify="keyword" placeholder="请输入关键字"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">author</label>
+            <div class="layui-input-inline">
+                <input type="text" name="author" value="{{ d.author || '' }}" lay-verify="author" placeholder="请输入作者"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
 
-<div class="layui-form" id="demo" style="padding: 20px 0 0 0;display: none" type="text/html">
-    <div class="layui-form-item">
-        <label class="layui-form-label">用户名</label>
-        <input type="hidden" name="id" value="{{ d.id || '' }}"   autocomplete="off" class="layui-input">
+        <div class="layui-form-item">
+            <label class="layui-form-label">选择状态</label>
+            <div class="layui-input-block">
+                <input type="radio" name="poStatus" value="0" title="下架"
+                       {{# if(d.poStatus===0){ }}
+                       checked
+                       {{# } }}
+                />
 
-
-        <div class="layui-input-inline">
-
-            <input type="text" name="username" value="{{ d.username || '' }}" lay-verify="required"
-                   placeholder="请输入用户名" autocomplete="off" class="layui-input"/>
+                <input type="radio" name="poStatus" value="1" title="上架"
+                       {{# if(d.poStatus===1){ }}
+                       checked
+                       {{# } }}
+                />
+            </div>
 
         </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">手机号码</label>
-        <div class="layui-input-inline">
-
-            <input type="text" name="mobile" value="{{ d.mobile || '' }}" lay-verify="phone" placeholder="请输入号码"
-                   autocomplete="off" class="layui-input"/>
-
+        <div class="layui-form-item">
+            <label class="layui-form-label">details</label>
+            <div class="layui-input-inline">
+                <textarea type="text" name="details"
+                          class="layui-input">{{ d.details || '' }}</textarea>
+            </div>
         </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">邮箱</label>
-        <div class="layui-input-inline">
+        <div class="layui-form-item">
+            <label class="layui-form-label"></label>
+            <div class="layui-input-inline">
+                <button class="layui-btn" lay-submit lay-filter="update_form_submit">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
 
-            <input type="text" name="email" value="{{ d.email || '' }}" lay-verify="email" placeholder="请输入邮箱"
-                   autocomplete="off" class="layui-input"/>
-
+            </div>
         </div>
-    </div>
+    </form>
 
-    <div class="layui-form-item" lay-filter="sex">
-        <label class="layui-form-label">选择性别</label>
-        <div class="layui-input-block">
-
-            <input type="radio" name="sex" value="0" title="男" {{ d.sex === 0 ? 'checked' : '' }}>
-            <input type="radio" name="sex" value="1" title="女" {{ d.sex === 1 ? 'checked' : '' }}>
-            <input type="radio" name="sex"  value="2" title="保密" {{ d.sex === 2 ? 'checked' : '' }}>
-
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label"></label>
-        <div class="layui-input-inline">
-            <input type="button" lay-submit lay-filter="LAY-user-front-submit" value="确认" class="layui-btn">
-        </div>
-    </div>
-</div>
-
+</script>
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/lib/layui/layui.all.js"></script>
-<script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="/lib/laypage/1.2/laypage.js"></script>
 <script type="text/html" id="toolbarDemo">
-    <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">批量删除</button>
+    <a class="btn btn-primary radius" data-title="添加资讯" data-href="/page/article-add" onclick="Hui_admin_tab(this)"
+       href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加资讯</a>
+    <button class="layui-btn layui-btn-sm" lay-event="getCheckData">批量删除</button>
 
     </div>
 </script>
@@ -196,20 +149,22 @@
 </script>
 <script type="text/javascript">
     $(function () {
-        layui.use(['table', 'laytpl', 'element'], function () {
+        layui.use(['table', 'laytpl', 'element', 'form'], function () {
             var table = layui.table;
             var laytpl = layui.laytpl;
             var element = layui.element;
+            var form = layui.form;
             $("#search").click(function () {
                 reload();
-            });
+            })
 
             function reload() {
                 table.reload('table', {
                     where: { //请求参数（注意：这里面的参数可任意定义，并非下面固定的格式）
-                        start: $("#start").val(),
-                        end: $("#end").val(),
-                        keywords: $("#titleName").val()
+                        // articlecolumn: $("#articlecolumn").val(),
+                        logmin: $("#logmin").val(),
+                        logmax: $("#logmax").val(),
+                        zxname: $("#zxname").val()
                     }
                 });
             }
@@ -231,24 +186,40 @@
                         }
                     }
                     ,
-                    {field: 'username', title: '用户名', width: '10%'}
-                    , {field: 'mobile', title: '手机号', width: '10%'}
-                    , {field: 'email', title: '邮箱', width: '10%'}
+                    {field: 'title', title: '标题', width: '10%'}
                     , {
-                        field: 'sex', title: '性别', width: '10%'
+                        field: 'type', title: '分类', width: '10%'
                         , templet: function (d) {
-                            switch (d.sex) {
+                            switch (d.type) {
                                 case 0:
-                                    return '男';
+                                    return '全部栏目';
                                 case 1:
-                                    return '女';
-                                case 2:
-                                    return '保密';
+                                    return '新闻资讯';
+                                case 11:
+                                    return '行业动态';
+                                case 12:
+                                    return '行业资讯';
+                                case 13:
+                                    return '行业新闻';
                             }
                         }
                     }
-                    , {field: 'remark', title: '留言内容', width: '30%'}
-                    , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: '10%'}
+                    , {field: 'src', title: '来源', width: '10%'}
+                    , {field: 'updateTime', title: '更新时间', width: '20%'}
+                    , {
+                        field: 'poStatus', title: '发布状态', width: '20%'
+                        , templet: function (d) {
+                            switch (d.poStatus) {
+                                case 0:
+                                    return '草稿';
+                                case 1:
+                                    return '已上架';
+                                case 2:
+                                    return '以下架';
+                            }
+                        }
+                    }
+                    , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: '15%'}
 
 
                 ]]
@@ -270,7 +241,7 @@
                             layer.alert(arr.join(','));
                             layer.confirm('真的删除这些数据么', function (index) {
                                 $.ajax({
-                                    "url": "/suggestings/delete",
+                                    "url": "/consulting/delete",
                                     "data": {
                                         ids: arr.join(',')
                                     },
@@ -296,7 +267,37 @@
                 }
                 ;
             });
-
+            function addOrUpdate(data) {
+                var getTpl = document.getElementById("demo").innerHTML;
+                laytpl(getTpl).render(data, function (html) {
+                    var index = layer.open({
+                        type: 1,
+                        content: html,
+                        area: ['500px', '600px']
+                    });
+                    form.render();
+                    form.on('submit(update_form_submit)', function (data) {
+                        layer.msg(JSON.stringify(data.field));
+                        $.ajax({
+                            "url": "/consulting/updateOrAdd",
+                            "data": JSON.stringify(data.field),
+                            type: "post",
+                            contentType: 'application/json',
+                            dataType: "json",
+                            success: function (res) {
+                                if (res.code === 200) {
+                                    layer.msg("操作成功");
+                                    reload();
+                                    layer.close(index);
+                                } else {
+                                    layer.msg(res.msg);
+                                }
+                            }
+                        })
+                        return false;
+                    });
+                });
+            }
             //监听行工具事件
             table.on('tool(test)', function (obj) {
                 var data = obj.data;
@@ -305,7 +306,7 @@
                 if (obj.event === 'del') {
                     layer.confirm('真的删除行么', function (index) {
                         $.ajax({
-                            "url": "/suggestings/delete",
+                            "url": "/consulting/delete",
                             "data": {
                                 ids: data.id
                             },
@@ -323,115 +324,11 @@
                         })
                     });
                 } else if (obj.event === 'edit') {
-                    var getTpl = $("#demo")[0].innerHTML;
-                    laytpl(getTpl).render(data, function (html) {
-                        var index = layer.open({
-                            type: 1,
-                            content: html,
-                            area: ['500px', '600px']
-                        });
-                        element.render();
-                    });
+                    addOrUpdate(data);
                 }
             });
         });
-
     });
-    $('.table-sort').dataTable({
-        "aaSorting": [[1, "desc"]],//默认第几个排序
-        "bStateSave": true,//状态保存
-        "pading": false,
-        "aoColumnDefs": [
-            //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-            {"orderable": false, "aTargets": [0, 8]}// 不参与排序的列
-        ]
-    });
-
-    /*资讯-添加*/
-    function article_add(title, url, w, h) {
-        var index = layer.open({
-            type: 2,
-            title: title,
-            content: url
-        });
-        layer.full(index);
-    }
-
-    /*资讯-编辑*/
-    function article_edit(title, url, id, w, h) {
-        var index = layer.open({
-            type: 2,
-            title: title,
-            content: url
-        });
-        layer.full(index);
-    }
-
-    /*资讯-删除*/
-    function article_del(obj, id) {
-        layer.confirm('确认要删除吗？', function (index) {
-            $.ajax({
-                type: 'POST',
-                url: '',
-                dataType: 'json',
-                success: function (data) {
-                    $(obj).parents("tr").remove();
-                    layer.msg('已删除!', {icon: 1, time: 1000});
-                },
-                error: function (data) {
-                    console.log(data.msg);
-                },
-            });
-        });
-    }
-
-    /*资讯-审核*/
-    function article_shenhe(obj, id) {
-        layer.confirm('审核文章？', {
-                btn: ['通过', '不通过', '取消'],
-                shade: false,
-                closeBtn: 0
-            },
-            function () {
-                $(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_start(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-                $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-                $(obj).remove();
-                layer.msg('已发布', {icon: 6, time: 1000});
-            },
-            function () {
-                $(obj).parents("tr").find(".td-manage").prepend('<a class="c-primary" onClick="article_shenqing(this,id)" href="javascript:;" title="申请上线">申请上线</a>');
-                $(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">未通过</span>');
-                $(obj).remove();
-                layer.msg('未通过', {icon: 5, time: 1000});
-            });
-    }
-
-    /*资讯-下架*/
-    function article_stop(obj, id) {
-        layer.confirm('确认要下架吗？', function (index) {
-            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_start(this,id)" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已下架</span>');
-            $(obj).remove();
-            layer.msg('已下架!', {icon: 5, time: 1000});
-        });
-    }
-
-    /*资讯-发布*/
-    function article_start(obj, id) {
-        layer.confirm('确认要发布吗？', function (index) {
-            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="article_stop(this,id)" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已发布</span>');
-            $(obj).remove();
-            layer.msg('已发布!', {icon: 6, time: 1000});
-        });
-    }
-
-    /*资讯-申请上线*/
-    function article_shenqing(obj, id) {
-        $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">待审核</span>');
-        $(obj).parents("tr").find(".td-manage").html("");
-        layer.msg('已提交申请，耐心等待审核!', {icon: 1, time: 2000});
-    }
 
 </script>
 </body>
